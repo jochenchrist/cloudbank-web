@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+    <title>Cloudbank Loan Calculator</title>
+</head>
+<body>
+<h:outputText value="Cloudbank Loan Calculator"/>
+
+<h:form>
+        <h:outputLabel value="Wunschbetrag:" for="amount"/>
+        <h:inputText id="amount" value="#{loanCalculator.amount}"/>
+
+        <h:outputLabel value="Dauer (Monate):" for="dauer"/>
+        <h:inputText id="dauer"
+                     value="#{loanCalculator.dauer}"/>
+
+        <h:outputLabel value="Monatsnetto-Einkommen:" for="nettoeinkommen"/>
+        <h:inputText id="nettoeinkommen"
+                     value="#{loanCalculator.nettoeinkommen}"/>
+
+        <h:outputLabel value="Monatsbetrag:" for="monatsbetrag"/>
+        <h:inputText id="monatsbetrag"
+                     value="#{loanCalculator.monatsbetrag}" disabled="true">
+            <f:convertNumber maxFractionDigits="2" type="currency"/>
+        </h:inputText>
+
+        <h:outputLabel value="Zinssatz:" for="zinssatz"/>
+        <h:inputText id="zinssatz"
+                     value="#{loanCalculator.zinssatz}" disabled="true">
+            <f:convertNumber maxFractionDigits="3" type="percent"/>
+        </h:inputText>
+
+    <h:commandButton id="berechnen" value="Berechnen"
+                     action="#{loanCalculator.berechnen}"/>
+
+</h:form>
+</body>
+</html>

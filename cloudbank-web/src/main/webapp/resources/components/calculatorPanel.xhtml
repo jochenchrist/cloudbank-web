@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:comp="http://java.sun.com/jsf/composite">
+<comp:interface>
+<!--    <comp:attribute name=""/>       -->
+</comp:interface>
+<comp:implementation>
+    <h:form>
+        <h:panelGrid id="grid" columns="2" width="100%" border="0" cellpadding="1" cellspacing="1">
+
+            <h:outputLabel value="Wunschbetrag:" for="amount"/>
+            <h:inputText id="amount" value="#{loanCalculator.amount}"/>
+
+            <h:outputLabel value="Dauer (Monate):" for="dauer"/>
+            <h:inputText id="dauer"
+                         value="#{loanCalculator.dauer}"/>
+
+            <h:outputLabel value="Monatsnetto-Einkommen:" for="nettoeinkommen"/>
+            <h:inputText id="nettoeinkommen"
+                         value="#{loanCalculator.nettoeinkommen}"/>
+
+            <h:outputLabel value="Monatsbetrag:" for="monatsbetrag"/>
+            <h:inputText id="monatsbetrag"
+                         value="#{loanCalculator.monatsbetrag}" disabled="true">
+                <f:convertNumber maxFractionDigits="2" type="currency"/>
+            </h:inputText>
+
+            <h:outputLabel value="Zinssatz:" for="zinssatz"/>
+            <h:inputText id="zinssatz"
+                         value="#{loanCalculator.zinssatz}" disabled="true">
+                <f:convertNumber maxFractionDigits="3" type="percent"/>
+            </h:inputText>
+        </h:panelGrid>
+
+        <h:commandButton id="berechnen" value="Berechnen"
+                         action="#{loanCalculator.berechnen()}"/>
+        <h:commandButton id="beantragen" value="Jetzt beantragen"
+                         action="#{loanCalculator.beantragen()}"/>
+
+
+    </h:form>
+
+    </comp:implementation>
+</html>

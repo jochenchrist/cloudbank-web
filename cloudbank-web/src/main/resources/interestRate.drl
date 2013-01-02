@@ -1,0 +1,22 @@
+
+dialect  "mvel"
+
+import java.math.*;
+import org.cloudbank.model.Loan;
+
+rule "interestRate < 1000"
+    when
+        loan : Loan(loanAmount < 1000 )
+    then
+        System.out.println("<1000");
+        loan.setInterestRate(new BigDecimal("0.0899"));
+end
+
+rule "interestRate >= 1000"
+    when
+        loan : Loan(loanAmount >= 1000 )
+    then
+        System.out.println(">= 1000");
+        loan.setInterestRate(new BigDecimal("0.0799"));
+end
+

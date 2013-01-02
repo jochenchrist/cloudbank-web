@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+    <!-- Application ID (formatted CB_ACCOUNT/APPNAME) -->
+    <appid>cloudbank/cloudbank-web</appid>
+
+    <!-- DataSources (use names referenced via <resource-ref> in WEB-INF/web.xml) -->
+    <resource name="jdbc/cloudbank" auth="Container" type="javax.sql.DataSource">
+        <param name="username" value="cloudbank" />
+        <param name="password" value="cloudbank" />
+        <param name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/cloudbank" />
+    </resource>
+</cloudbees-web-app>
